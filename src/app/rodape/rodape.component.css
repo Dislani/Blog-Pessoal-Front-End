@@ -1,0 +1,26 @@
+ul.redes-sociais{
+    list-style: none; 
+    padding: 0;
+}
+
+ul.redes-sociais li {
+    display: inline;
+    margin: 0;
+    padding: 5px;
+
+}
+
+.fa{
+    font-size:35pt ;
+    color:white ;
+    padding: 10px;
+}
+
+.fa-linkedin-square:hover{
+    color:rgb(17, 116, 209)
+
+}
+
+.fa-github-square:hover{
+    color: black;
+}
