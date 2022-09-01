@@ -1,0 +1,25 @@
+#img-bg{
+    align-items: center;
+    min-height: 100px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.color{
+    color: #e2f5f1;
+}
+
+.bg{
+
+    background-color: #eb841d;
+    background-repeat: no-repeat;
+    min-height: 90px;
+
+}
+
+
+.colortex{
+    color: #D28C36;
+    
+}
