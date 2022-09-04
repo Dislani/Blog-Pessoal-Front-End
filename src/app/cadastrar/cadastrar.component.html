@@ -1,82 +1,66 @@
-
-<!--coluna esquerda-->
-<div class="containe-fluid color bg">
+<div class="container-fluid">
+    <!--container.passo1- (Container fluid), o conteiner fluid utiliza quase 100% da tela enquanto "container utila 100%" -->
     <div class="row">
-        <div class="col-md-1" id="img-bg"></div>
+        <!--row. passo-2- (Linha) dentro do container -->
+        <div class="col-md-6" id="img-bg"> <!--imagem-->
+            <!--Passo-3- (imagem-Primera Coluna do lado esquerdo) dentro da linha-->
+        </div> <!--/imagem-->
 
-        <!--coluna direta-->
-        <div class="col-md-11 mt-5 mb-5">
+         <div class="col-md-6  bg">
+            <!--Passo-4- (formulario- Segunda Coluna do lado direito) dentro da linha-->
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6">
 
+                    <h1 class="text-center">Cadastro</h1>
 
-            <div class="row d-flex justify-content-center"></div>
-        
-            <div class="md-10">
-        
-                <h1 class="text-center ">Cadastro</h1>
-        
-                <div class="row d-flex justify-content-center ">
-        
-                    <div class="col-md-6 ">
-                        <div class="form-grup">
-                            <label for="nome"> Nome*</label>
-                            <input class="form-control" type="text" name="nome" id="nome"
-                                placeholder="Nome">
-                        </div>
-        
-                        <div class="form-grup">
-                            <label for="usuario"> Usuário* </label>
-                            <input class="form-control" type="password" name="'usuario" id="usuario"
-                                placeholder="E-mail">
-                        </div>
-        
-                        <div class="form-grup">
-                            <label for="foto"> Foto</label>
-                            <input class="form-control" type="password" name="'foto" id="foto"
-                            placeholder="Link da foto">
-                        </div>
-        
-                        <div class="form-grup">
-                            <label for="senha"> Senha* </label>
-                            <input class="form-control" type="password" name="senha" id="senha"
-                                >
-                        </div>
-        
-                        <div class="form-grup">
-                            <label for="confirmarSenha"> Confirmar Senha* </label>
-                            <input class="form-control" type="password" name="confirmar" id="confirmar" 
-                            placeholder=" ">
-                        </div>
-        
-                        <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn btn-success mt-3"> Entrar </button>
-                            <!-- "mt-3" da espaçamento do topo-->
-                        </div>
-        
-                        <div class="form-grup">
-                            <label for="tipoUsuario"> Tipo de Usuario </label>
-        
-                            <select class="form-control" name="tipo" id="tipo">
-                                <option> Selecione o tipo de usuário</option>
-                                <option value="normal">Normal</option>
-                                <option value="admn">Administrador</option>
-                            </select>
-                        </div>
-        
-                        <!--botões cancelar e confirmar-->
-                        <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn btn-danger mr-4 mt-3">Cancelar</button>
-                            <!--"mr-4 = espaçamento margem a direita "-->
-                            <button type="submit" class="btn btn-success mr-4 mt-3">Cadastrar</button>
-                        </div>
-                        <!--/botões cancelar e confirmar-->
+                    <div class="form-grup">
+                        <label for="nome"> Nome*</label>
+                        <input class="form-control" type="text" name="nome" id="nome" placeholder="Nome">
                     </div>
-        
+
+                    <div class="form-grup">
+                        <label for="usuario"> Usuário* </label>
+                        <input class="form-control" type="text" name="'usuario" id="usuario" placeholder="E-mail">
+                    </div>
+
+                    <div class="form-grup">
+                        <label for="foto"> Foto</label>
+                        <input class="form-control" type="text" name="'foto" id="foto" placeholder="Link da sua foto">
+                    </div>
+
+                    <div class="form-grup">
+                        <label for="senha"> Senha* </label>
+                        <input class="form-control" type="password" name="senha" id="senha">
+                    </div>
+
+                    <div class="form-grup">
+                        <label for="confirmarSenha"> Confirmar Senha* </label>
+                        <input class="form-control" type="password" name="confirmar" id="confirmar" placeholder=" ">
+                    </div>
+
+                    <div class=" form-grup">
+                        <label for="tipoUsuario"> Tipo de Usuario </label>
+
+                        <select class="form-control" name="tipo" id="tipo">
+                            <option> Selecione o tipo de usuário</option>
+                            <option value="normal">Normal</option>
+                            <option value="admn">Administrador</option>
+                        </select>
+                    </div>
+
+                    <!--botões cancelar e confirmar-->
+                    <div class=" d-flex justify-content-center">
+                        <button type="submit" class="btn btn-warning mr-4 mt-3" routerLink="/entrar">Cancelar</button>
+                        <!--"mr-4 = espaçamento margem a direita "-->
+                        <button type="submit" class="btn btn-success mt-3">Cadastrar</button>
+                    </div> 
+                    <!--/botões cancelar e confirmar-->
                 </div>
-        
+
             </div>
-        
-        
         </div>
+        <!--/formulario-->
 
     </div>
+
 </div>
