@@ -1,14 +1,19 @@
 #img-bg{
-    background-image: url('https://i.imgur.com/PZZfVLq.png');
+    background-image: url(https://i.imgur.com/aGsbIzK.jpg);
     min-height: 695px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
+
+.color{
+    color: #e2f5f1;
+}
+
 .bg{
 
-    background-color: #ee8f1a;
+    background-color: #ff9514;
     background-repeat: no-repeat;
     min-height: 90px;
 
