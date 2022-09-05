@@ -11,37 +11,37 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-md-6">
 
-                    <h1 class="text-center">Cadastro</h1>
+                    <h1 class="text-center mt-5">Cadastro</h1>
 
                     <div class="form-grup">
                         <label for="nome"> Nome*</label>
-                        <input class="form-control" type="text" name="nome" id="nome" placeholder="Nome">
+                        <input [(ngModel)]="user.nome" class="form-control" type="text" name="nome" id="nome" placeholder="Nome">
                     </div>
 
                     <div class="form-grup">
                         <label for="usuario"> Usuário* </label>
-                        <input class="form-control" type="text" name="'usuario" id="usuario" placeholder="E-mail">
+                        <input [(ngModel)]="user.usuario" class="form-control" type="text" name="'usuario" id="usuario" placeholder="E-mail">
                     </div>
 
                     <div class="form-grup">
                         <label for="foto"> Foto</label>
-                        <input class="form-control" type="text" name="'foto" id="foto" placeholder="Link da sua foto">
+                        <input [(ngModel)]="user.foto" class="form-control" type="text" name="'foto" id="foto" placeholder="Link da sua foto">
                     </div>
 
                     <div class="form-grup">
-                        <label for="senha"> Senha* </label>
-                        <input class="form-control" type="password" name="senha" id="senha">
+                        <label  for="senha"> Senha* </label>
+                        <input (input)="confirmeSenha($event)" class="form-control" type="password" name="senha" id="senha">
                     </div>
 
                     <div class="form-grup">
-                        <label for="confirmarSenha"> Confirmar Senha* </label>
-                        <input class="form-control" type="password" name="confirmar" id="confirmar" placeholder=" ">
+                        <label  for="confirmarSenha"> Confirmar Senha* </label>
+                        <input [(ngModel)]="user.senha" class="form-control" type="password" name="confirmar" id="confirmar" placeholder=" ">
                     </div>
 
                     <div class=" form-grup">
                         <label for="tipoUsuario"> Tipo de Usuario </label>
 
-                        <select class="form-control" name="tipo" id="tipo">
+                        <select class="form-control" name="tipo" id="tipo" (change)="tipoUser($event)">
                             <option> Selecione o tipo de usuário</option>
                             <option value="normal">Normal</option>
                             <option value="admn">Administrador</option>
@@ -52,7 +52,7 @@
                     <div class=" d-flex justify-content-center">
                         <button type="submit" class="btn btn-warning mr-4 mt-3" routerLink="/entrar">Cancelar</button>
                         <!--"mr-4 = espaçamento margem a direita "-->
-                        <button type="submit" class="btn btn-success mt-3">Cadastrar</button>
+                        <button type="submit" class="btn btn-success mt-3" (click)="cadastrar()">Cadastrar</button>
                     </div> 
                     <!--/botões cancelar e confirmar-->
                 </div>
