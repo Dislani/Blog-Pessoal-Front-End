@@ -1,0 +1,105 @@
+<div class="container-fluid">
+
+    <div class="row d-flex align-items-center" style="background-color: #CE7B2C">
+
+        <div class="col-md-6"><!--coluna da esquerda-->
+            <div class="row d-flex justify-content-center"><!-- 1 linha -->
+                <div class="col-md-6 text-white">
+                    <h1 class="text-54"> Seja bem vindo(a)!</h1>
+                    <h5 class="text-18"> Conheça e compartilhe receitas maravilhosas!</h5>
+                </div>
+            </div><!-- /1 linha -->
+
+            <div class="row d-flex justify-content-center mt-3 mb-5"><!-- 2 linha -->
+                <div class="col-md-6">
+                    <button class="btn btn-light mr-2" data-toggle="modal" data-target="#novaReceita" >Nova Receita</button>
+                    <a class="btn btn-outline-light" href="#receitas"> Ver Receitas</a>
+                </div>
+            </div>  <!--/2 linha -->
+        </div> <!--/coluna da esquerda-->
+
+        <div class="col-md-6 d-flex justify-content-center mb-5"> <!--coluna da direita- imagem-->
+            <img src="https://i.imgur.com/3LnMJZu.png" alt="" width="500px" height="500px">
+        </div> <!--/coluna da direita- imagem-->
+
+    </div>
+</div>
+
+
+<div class="container mb-5 mt-5" id="receitas"> <!--Postagens-->
+    
+    <nav>
+        <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
+
+            <a class="nav-item nav-link active text-secondary font-weigth-bold" id="nav-home-tab" data-toggle="tab"
+                href="#todasReceitas" role="tab" aria-controls="nav-todasReceitas" aria-selected="true">Todas as
+                Receitas</a>
+            <!--subs.Todas as postagens-->
+
+            <a class="nav-item nav-link text-secondary font-weigth-bold" id="nav-profile-tab" data-toggle="tab"
+                href="#minhasReceitas" role="tab" aria-controls="nav-minhasReceitas" aria-selected="false">Minhas
+                Receitas</a>
+            <!--subs. Minhas postagens-->
+
+            <a class="nav-item nav-link text-secondary font-weigth-bold" id="nav-contact-tab" data-toggle="tab"
+                href="#tiposReceitas" role="tab" aria-controls="nav-tiposReceitas" aria-selected="false">Tipos de
+                Receitas</a>
+            <!--subs.Postagens por tema-->
+
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+
+        <div class="tab-pane fade show active" id="todasReceitas" role="tabpanel"
+            aria-labelledby="nav-todasReceitas-tab">Todas as Receitas</div>
+
+        <div class="tab-pane fade" id="minhasReceitas" role="tabpanel" aria-labelledby="nav-minhasReceitas-tab">Minhas
+            Receitas</div>
+
+        <div class="tab-pane fade" id="tiposReceitas" role="tabpanel" aria-labelledby="nav-tiposReceitas-tab">Tipos de
+            Receitas</div>
+    </div>
+
+</div>  <!--/Postagens-->
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="novaReceita" tabindex="-1" role="dialog"
+    aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="TituloModalCentralizado">Nova Postagem</h5> <!--Subs.Nova Postagem-->
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body"> <!--Formulario-->
+                <div class="form-group">
+                    <label for="titulo"> Titulo </label> <!--Subs.titulo-->
+                    <input type="text" class="form-control" id="titulo" placeholder="Nome da receita">
+                </div>
+
+                <div class="form-group">
+                    <label for="texto"> Texto </label> <!--Subs.texto-->
+                    <textarea  class="form-control" name="texto" id="texto" rows="20" placeholder="Ingredientes e Preparo"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="texto"> Escolha um tema para sua receita  ou <a data-dismiss="modal" routerLink="/tema"> cadastre um novo</a>: </label>
+                    <select name="tema" id="tema" class="form-control" >
+                        <option value=""> Temas </option>
+                    </select>
+                </div>
+
+            </div><!--/Formulario-->
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal"> Cancelar</button>
+                <button type="button" class="btn btn-success">Publicar Receita</button>
+            </div>
+        </div>
+    </div>
+</div>
