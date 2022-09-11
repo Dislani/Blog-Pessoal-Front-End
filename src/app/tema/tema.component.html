@@ -9,7 +9,8 @@
       <h1 class="text-54 text-center">Temas</h1>
       <h5 class="text-18 text-center"> Veja aqui todos os temas gastronomicos ou cadastre um novo:</h5>
 
-      <div class="row d-flex justify-content-center mt-4 mb-5"><!--Botões-->
+      <div class="row d-flex justify-content-center mt-4 mb-5">
+        <!--Botões-->
         <div class="col-md-3">
           <div class="form-group text-center">
             <input [(ngModel)]='tema.descricao' type="text" class="form-control" id="descricao"
@@ -50,14 +51,13 @@
         </thead>
 
         <tbody>
-          
-          <tr *ngFor="let item of listaTemas">
-            <th> {{item.id}} </th>
-            <td> {{item.descricao}}</td>
 
+          <tr *ngFor='let item of listaTemas'>
+            <th>{{item.id}}</th>
+            <td>{{item.descricao}}</td>
             <td class="d-flex justify-content-end">
-              <button class=" btn btn-info mr-3">Editar</button>
-              <button class=" btn btn-danger">Excluir</button>
+              <button class=" btn btn-info mr-3" [routerLink]="['/tema-edit', item.id]">Editar</button>
+              <button class=" btn btn-danger" [routerLink]="['/tema-delete', item.id]">Excluir</button>
             </td>
           </tr>
 
