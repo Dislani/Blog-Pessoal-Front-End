@@ -2,103 +2,169 @@
 
     <div class="row d-flex align-items-center" style="background-color: #df8838">
 
-        <div class="col-md-6"><!--coluna da esquerda-->
-            <div class="row d-flex justify-content-center"><!-- 1 linha -->
+        <div class="col-md-6">
+            <!--coluna da esquerda-->
+            <div class="row d-flex justify-content-center">
+                <!-- 1 linha -->
                 <div class="col-md-6 text-white">
                     <h1 class="text-54"> Seja bem vindo(a)!</h1>
                     <h5 class="text-18"> Conheça e compartilhe receitas maravilhosas!</h5>
                 </div>
             </div><!-- /1 linha -->
 
-            <div class="row d-flex justify-content-center mt-3 mb-5"><!-- 2 linha -->
+            <div class="row d-flex justify-content-center mt-3 mb-5">
+                <!-- 2 linha -->
                 <div class="col-md-6">
-                    <button class="btn btn-light mr-2" data-toggle="modal" data-target="#novaReceita" >Nova Receita</button>
+                    <button class="btn btn-light mr-2" data-toggle="modal" data-target="#novaReceita">Nova
+                        Receita</button>
                     <a class="btn btn-outline-light" href="#receitas"> Ver Receitas</a>
                 </div>
-            </div>  <!--/2 linha -->
-        </div> <!--/coluna da esquerda-->
+            </div>
+            <!--/2 linha -->
+        </div>
+        <!--/coluna da esquerda-->
 
-        <div class="col-md-6 d-flex justify-content-center mb-5"> <!--coluna da direita- imagem-->
+        <div class="col-md-6 d-flex justify-content-center mb-5">
+            <!--coluna da direita- imagem-->
             <img src="https://i.imgur.com/tJPLkYU.png" alt="" width="600px" height="600px">
-        </div> <!--/coluna da direita- imagem-->
+        </div>
+        <!--/coluna da direita- imagem-->
 
     </div>
 </div>
 
 
-<div class="container mb-5 mt-5" id="receitas"> <!--Postagens-->
-    
+<div class="container mb-5 mt-5" id="receitas">
+    <!--Postagens-->
+
     <nav>
         <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
 
-            <a class="nav-item nav-link active text-secondary font-weigth-bold" id="nav-home-tab" data-toggle="tab"
+            <a class="nav-item nav-link active text-secondary font-weigth-bold" id="nav-todasReceitas-tab" data-toggle="tab"
                 href="#todasReceitas" role="tab" aria-controls="nav-todasReceitas" aria-selected="true">Todas as
                 Receitas</a>
             <!--subs.Todas as postagens-->
 
-            <a class="nav-item nav-link text-secondary font-weigth-bold" id="nav-profile-tab" data-toggle="tab"
-                href="#minhasReceitas" role="tab" aria-controls="nav-minhasReceitas" aria-selected="false">Minhas
+            <a (click)="findByIdUser()"  class="nav-item nav-link text-secondary font-weigth-bold" id="nav-minhasReceitas-tab"
+                data-toggle="tab" href="#minhasReceitas" role="tab" aria-controls="nav-minhasReceitas"
+                aria-selected="false">Minhas
                 Receitas</a>
             <!--subs. Minhas postagens-->
 
-            <a class="nav-item nav-link text-secondary font-weigth-bold" id="nav-contact-tab" data-toggle="tab"
+            <a class="nav-item nav-link text-secondary font-weigth-bold" id="nav-tiposReceitas-tab" data-toggle="tab"
                 href="#tiposReceitas" role="tab" aria-controls="nav-tiposReceitas" aria-selected="false">Tipos de
                 Receitas</a>
             <!--subs.Postagens por tema-->
 
         </div>
     </nav>
-    <div class="tab-content" id="nav-tabContent">
+
+
+    <div class="tab-content mt-5" id="nav-tabContent">
 
         <div class="tab-pane fade show active" id="todasReceitas" role="tabpanel"
-            aria-labelledby="nav-todasReceitas-tab">Todas as Receitas</div>
+            aria-labelledby="nav-todasReceitas-tab">
 
-        <div class="tab-pane fade" id="minhasReceitas" role="tabpanel" aria-labelledby="nav-minhasReceitas-tab">Minhas
-            Receitas</div>
+            <!--subs.Todas as postagens-->
+            <div class="card-columns">
+                <div class="card text-center" *ngFor='let item of listaPostagens'>
+                    <div class="card-body">
+                        <h5 class="card-title m-0 ">{{item.titulo}}</h5>
+                        <small class="text-muted mb-3"> Tema: {{item.tema.descricao}}</small>
+                        <p class="card-text">{{item.texto}}</p>
+                        <p class="card-text"><small class="text-muted"> {{item.data | date: 'dd/MM/yyyy'}} às |  {{item.data | date: 'HH:mm' }}</small></p>
+                        <p class="card-text"><small class="text-muted"> by: {{item.usuario.nome}}</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/subs.Todas as postagens-->
 
-        <div class="tab-pane fade" id="tiposReceitas" role="tabpanel" aria-labelledby="nav-tiposReceitas-tab">Tipos de
-            Receitas</div>
+
+        <div class="tab-pane fade" id="minhasReceitas" role="tabpanel" aria-labelledby="nav-minhasReceitas-tab">
+            <!--subs.Minhas postagens-->
+            <div class="card-columns">
+                <div class="card text-center" *ngFor='let item of user.postagem'>
+                    <div class="card-body">
+                        <h5 class="card-title m-0 ">{{item.titulo}}</h5>
+                        <small class="text-muted mb-3"> Tema: {{item.tema.descricao}}</small>
+                        <p class="card-text">{{item.texto}}</p>
+                        <p class="card-text"><small class="text-muted"> {{item.data | date: 'dd/MM/yyyy'}} às | {{item.data | date: 'HH:mm' }} </small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/subs.Minhas postagens-->
+
+
+        <div class="tab-pane fade" id="tiposReceitas" role="tabpanel" aria-labelledby="nav-tiposReceitas-tab"> <!--subs.postagem por tema-->
+
+            <div class="card-columns" *ngFor='let tema of listaTemas'>
+                <div class="card text-center" *ngFor='let item of tema.postagem'>
+                    <div class="card-body">
+                        <h5 class="card-title m-0 ">{{item.titulo}}</h5>
+                        <p class="card-text">{{item.texto}}</p>
+                        <p class="card-text"><small class="text-muted"> {{item.data | date: 'dd/MM/yyyy'}} às | {{item.data | date: 'HH:mm' }} </small></p>
+
+                        <p class="card-text"><small class="text-muted"> by: {{item.usuario.nome}}</small></p>
+
+                    </div>
+                </div>
+            </div>
+        </div> <!--/subs.postagem por tema-->
+
+
     </div>
 
-</div>  <!--/Postagens-->
+</div>
+<!--/Postagens-->
 
 
 
 <!-- Modal -->
-<div class="modal fade" id="novaReceita" tabindex="-1" role="dialog"
-    aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+<div class="modal fade" id="novaReceita" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="TituloModalCentralizado">Nova Postagem</h5> <!--Subs.Nova Postagem-->
+                <h5 class="modal-title" id="TituloModalCentralizado">Nova Postagem</h5>
+                <!--Subs.Nova Postagem-->
                 <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
 
-            <div class="modal-body"> <!--Formulario-->
+            <div class="modal-body">
+                <!--Formulario-->
                 <div class="form-group">
-                    <label for="titulo"> Titulo </label> <!--Subs.titulo-->
-                    <input type="text" class="form-control" id="titulo" placeholder="Digite o titulo">
+                    <label for="titulo"> Titulo </label>
+                    <!--Subs.titulo-->
+                    <input [(ngModel)]="postagem.titulo" type="text" class="form-control" id="titulo"
+                        placeholder="Digite o titulo">
                 </div>
 
                 <div class="form-group">
-                    <label for="texto"> Texto </label> <!--Subs.texto-->
-                    <textarea  class="form-control" name="texto" id="texto" rows="10"></textarea>
+                    <label for="texto"> Texto </label>
+                    <!--Subs.texto-->
+                    <textarea [(ngModel)]="postagem.texto" class="form-control" name="texto" id="texto"
+                        rows="10"></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label for="texto"> Escolha um tema para sua receita  ou <a data-dismiss="modal" routerLink="/tema"> Cadastre um novo</a>: </label>
-                    <select name="tema" id="tema" class="form-control" >
-                        <option value=""> Temas </option>
+                    <label for="texto"> Escolha um tema para sua receita ou <a data-dismiss="modal" routerLink="/tema">
+                            Cadastre um novo</a>: </label>
+                    <select name="tema" id="tema" class="form-control" [(ngModel)]="idTema" (change)="findByIdTema()">
+                        <option *ngFor='let item of listaTemas' value="{{item.id}}"> {{item.descricao}} </option>
                     </select>
                 </div>
 
-            </div><!--/Formulario-->
+            </div>
+            <!--/Formulario-->
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-warning" data-dismiss="modal"> Cancelar</button>
-                <button type="button" class="btn btn-success">Publicar Receita</button>
+                <button type="button" class="btn btn-success" (click)="publicar()" data-dismiss="modal">Publicar
+                    Receita</button>
             </div>
         </div>
     </div>
