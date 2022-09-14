@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import{HttpClientModule} from '@angular/common/http';
+
+
 import{ ModalModule} from 'ngx-bootstrap/modal';
+import { OrderModule } from 'ngx-order-pipe';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,7 +40,7 @@ import { OrderModule } from 'ngx-order-pipe';
     PostagemEditComponent,
     PostagemDeleteComponent,
     UserEditComponent,
-    AlertasComponent,
+    AlertasComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,7 @@ import { OrderModule } from 'ngx-order-pipe';
     FormsModule,
     ModalModule.forRoot(),
     OrderModule
-    
+
   ],
   providers: [{
     provide: LocationStrategy,
