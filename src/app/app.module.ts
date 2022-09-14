@@ -46,6 +46,7 @@ import { OrderModule } from 'ngx-order-pipe';
     ModalModule.forRoot(),
     OrderModule
     
+    
   ],
   providers: [{
     provide: LocationStrategy,
