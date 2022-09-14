@@ -43,7 +43,8 @@ import { OrderModule } from 'ngx-order-pipe';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    OrderModule
   
     
     
