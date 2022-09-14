@@ -46,8 +46,7 @@ import { AlertasComponent } from './alertas/alertas.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ModalModule.forRoot(),
-    OrderModule
+    ModalModule.forRoot()
   ],
   providers: [{
     provide: LocationStrategy,
