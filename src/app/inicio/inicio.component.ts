@@ -32,9 +32,6 @@ export class InicioComponent implements OnInit {
 
 
 
-    key = 'data'
-    reverse = true
-
   constructor(
     private router: Router,
     private postagemService: PostagemService,
