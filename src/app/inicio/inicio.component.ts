@@ -17,15 +17,20 @@ import { TemaService } from '../service/tema.service';
 export class InicioComponent implements OnInit {
 
 
-    postagem: Postagem = new Postagem()
-    listaPostagens: Postagem[]
+  postagem: Postagem = new Postagem()
+  listaPostagens: Postagem[]
 
-    tema: Tema = new Tema()
-    listaTemas: Tema[]
-    idTema: number
+  tema: Tema = new Tema()
+  listaTemas: Tema[]
+  idTema: number
 
-    user: User = new User()
-    idUser = environment.id
+  user: User = new User()
+  idUser = environment.id
+
+  key = 'data'
+  reverse = true
+
+
 
     key = 'data'
     reverse = true
@@ -36,53 +41,53 @@ export class InicioComponent implements OnInit {
     private temaService: TemaService,
     private authService: AuthService,
     private alertas: AlertasService
-    ) { }
+  ) { }
 
   ngOnInit() {
 
-    window.scroll(0,0)
+    window.scroll(0, 0)
 
-    if(environment.token == ''){
+    if (environment.token == '') {
       this.router.navigate(['/entrar'])
     }
     this.getAllTemas()
     this.getAllPostagem()
   }
 
-getAllTemas(){
-  this.temaService.getAllTema().subscribe((resp: Tema[])=>{
-    this.listaTemas=resp
-  })
-}
+  getAllTemas() {
+    this.temaService.getAllTema().subscribe((resp: Tema[]) => {
+      this.listaTemas = resp
+    })
+  }
 
-findByIdTema(){
-  this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema)=>{
-    this.tema= resp
-  })
-}
+  findByIdTema() {
+    this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema) => {
+      this.tema = resp
+    })
+  }
 
-  getAllPostagem(){
-    this.postagemService.getAllPostagens().subscribe((resp: Postagem[])=>{
+  getAllPostagem() {
+    this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
       this.listaPostagens = resp
     })
   }
 
-  findByIdUser(){
-    this.authService.getByIdUser(this.idUser).subscribe((resp: User)=>{
+  findByIdUser() {
+    this.authService.getByIdUser(this.idUser).subscribe((resp: User) => {
       this.user = resp
     })
 
   }
 
 
-  publicar(){
+  publicar() {
     this.tema.id = this.idTema
     this.postagem.tema = this.tema
 
     this.user.id = this.idUser
     this.postagem.usuario = this.user
 
-    this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem)=>{
+    this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
       this.alertas.showAlertSuccess('Receita publicada com sucesso!')
       this.postagem = new Postagem()

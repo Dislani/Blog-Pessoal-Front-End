@@ -5,6 +5,8 @@ import { Tema } from 'src/app/model/Tema';
 import { PostagemService } from 'src/app/service/postagem.service';
 import { TemaService } from 'src/app/service/tema.service';
 import { environment } from 'src/environments/environment.prod';
+import { AlertasService } from 'src/app/service/alertas.service';
+
 
 @Component({
   selector: 'app-postagem-edit',
@@ -25,7 +27,8 @@ idTema: number
     private router: Router,
     private route: ActivatedRoute,
     private postagemService: PostagemService,
-    private temaService: TemaService
+    private temaService: TemaService,
+    private alertas: AlertasService
 
   ) { }
 
@@ -69,7 +72,7 @@ atualizar(){
 
   this.postagemService.putPostagem(this.postagem).subscribe((resp: Postagem)=>{
     this.postagem= resp
-    alert('Receita atualizada com sucesso!')
+    this.alertas.showAlertSuccess('Receita atualizada com sucesso!')
     this.router.navigate(['/inicio'])
   })
 }
