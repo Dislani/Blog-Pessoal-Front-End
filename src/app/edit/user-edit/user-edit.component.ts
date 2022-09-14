@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/model/User';
 import { AuthService } from 'src/app/service/auth.service';
 import { environment } from 'src/environments/environment.prod';
+import { AlertasService } from 'src/app/service/alertas.service';
+
 
 @Component({
   selector: 'app-user-edit',
@@ -20,7 +22,9 @@ export class UserEditComponent implements OnInit {
 
     private authService: AuthService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private alertas: AlertasService
+
   ) { }
 
   ngOnInit() {
@@ -50,12 +54,12 @@ export class UserEditComponent implements OnInit {
     this.user.tipo = this.tipoUsuario
 
     if (this.user.senha != this.confirmarSenha) {
-      alert("senhas não conferem!")
+      this.alertas.showAlertDanger("senhas não conferem!")
     } else {
       this.authService.atualizar(this.user).subscribe((resp: User) => {
         this.user = resp
         this.router.navigate(['/inicio'])
-        alert("Usuario Atualizado com sucesso, faça o login novamente." )
+        this.alertas.showAlertSuccess("Usuario Atualizado com sucesso, faça o login novamente." )
         environment.token = ''
         environment.nome = ''
         environment.foto = ''
