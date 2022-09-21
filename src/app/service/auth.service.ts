@@ -42,4 +42,13 @@ export class AuthService {
     }
     return ok
   }
+
+admn(){
+  let ok: boolean = false
+    if(environment.tipo == 'admn'){
+      ok=true
+    }
+    return ok
+}
+
 }
